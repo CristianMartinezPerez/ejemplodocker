@@ -28,6 +28,7 @@ pipeline {
                 steps {
                     dir("C:\\\\Users\\\\cmartinez\\\\Documents\\\\personal\\\\devops\\\\Unidad 3\\\\PrimerPipeline\\\\ejemplo-maven") {
                         sh 'mvn spring-boot:run &'
+                        sleep 20
                     }
                 }
             }
