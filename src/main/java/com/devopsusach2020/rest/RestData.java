@@ -3,6 +3,8 @@ package com.devopsusach2020.rest;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.lang.model.util.ElementScanner6;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,12 +51,16 @@ public class RestData {
 
 		Pais[] estados = {};
 
+		Pais[] NODATA = {};
 
-		try {
+		if (call.getBody().toLowerCase() != null){
 			estados = gson.fromJson(call.getBody().toLowerCase(), Pais[].class);
-		} catch (Exception e) {
-			//TODO: handle exception
 		}
+		else
+			{
+				estados = NODATA;
+			}
+		
         
 
         for(Pais estado : estados) {
