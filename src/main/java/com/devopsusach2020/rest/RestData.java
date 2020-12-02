@@ -3,8 +3,6 @@ package com.devopsusach2020.rest;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.lang.model.util.ElementScanner6;
-
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
