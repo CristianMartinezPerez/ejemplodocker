@@ -8,6 +8,7 @@ class DevOpsUsach2020ApplicationTests {
 
 	@Test
 	void contextLoads() {
+		return;
 	}
 
 }
