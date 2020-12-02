@@ -51,17 +51,17 @@ public class RestData {
 
 		Pais[] estados = {};
 
-		Pais[] NODATA = {};
+		//Pais[] NODATA = {};
 
 		String respuesta = call.getBody();
 
 		if (respuesta != null){
 			estados = gson.fromJson(respuesta.toLowerCase(), Pais[].class);
 		}
-		else
-			{
-				estados = NODATA;
-			}
+//		else
+//			{
+//				estados = NODATA;
+//			}
 		
         
 
