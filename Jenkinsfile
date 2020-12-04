@@ -5,31 +5,36 @@ pipeline {
         
             stage('Compile') {
                 steps {
-                    dir("C:\\\\Users\\\\cmartinez\\\\Documents\\\\personal\\\\devops\\\\Unidad 3\\\\PrimerPipeline\\\\ejemplo-maven") {
+                    
                         sh 'mvn clean compile -e'
-                    }
+                    
                 }
             }
             stage('Test') {
                 steps {
-                    dir("C:\\\\Users\\\\cmartinez\\\\Documents\\\\personal\\\\devops\\\\Unidad 3\\\\PrimerPipeline\\\\ejemplo-maven") {
+                    
                         sh 'mvn clean test -e'
-                    }
+                    
                 }
             }
             stage('Jar') {
                 steps {
-                    dir("C:\\\\Users\\\\cmartinez\\\\Documents\\\\personal\\\\devops\\\\Unidad 3\\\\PrimerPipeline\\\\ejemplo-maven") {
+                   
                         sh 'mvn clean package -e'
-                    }
+                    
                 }
             }
+           stage('SonarQube analysis') {
+            withSonarQubeEnv( installationName: 'SonarQube') { 
+              sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+            }
+          }
             stage('Run') {
                 steps {
-                    dir("C:\\\\Users\\\\cmartinez\\\\Documents\\\\personal\\\\devops\\\\Unidad 3\\\\PrimerPipeline\\\\ejemplo-maven") {
+                    
                         sh 'mvn spring-boot:run &'
                         sleep 20
-                    }
+                    
                 }
             }
             stage('TestApp') {
@@ -39,5 +44,6 @@ pipeline {
                     }
                 }
             }
+
     }
 }
