@@ -18,8 +18,7 @@ pipeline {
                 }
             }
             stage('Jar') {
-                steps {
-                   
+                steps {                
                         sh 'mvn clean package -e'
                     
                 }
@@ -39,9 +38,9 @@ pipeline {
             }
             stage('TestApp') {
                 steps {
-                    dir("C:\\\\Users\\\\cmartinez\\\\Documents\\\\personal\\\\devops\\\\Unidad 3\\\\PrimerPipeline\\\\ejemplo-maven") {
+                    
                         sh 'curl -X GET "http://localhost:8081/rest/mscovid/test?msg=testing"'
-                    }
+                    
                 }
             }
 
