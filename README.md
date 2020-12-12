@@ -1,7 +1,7 @@
 # Getting Started
 
 ## Windows
-Actualizado Nexus
+Actualizado Nexus2
 ### Compile Code
 * ./mvnw.cmd clean compile -e
 
