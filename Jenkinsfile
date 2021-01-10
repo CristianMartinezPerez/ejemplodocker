@@ -6,27 +6,27 @@ pipeline {
     stage('Compile') {
       steps {
 
-        sh 'mvn clean compile -e'
+        bat 'mvn clean compile -e'
 
       }
     }
     stage('Test') {
       steps {
 
-        sh 'mvn clean test -e'
+        bat 'mvn clean test -e'
 
       }
     }
     stage('Jar') {
       steps {
-        sh 'mvn clean package -e'
+        bat 'mvn clean package -e'
 
       }
     }
     stage('SonarQube analysis') {
       steps {
         withSonarQubeEnv(installationName: 'SonarQube') {
-          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+          bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
         }
       }
     }
