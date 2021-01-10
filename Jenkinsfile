@@ -6,20 +6,20 @@ pipeline {
             stage('Compile') {
                 steps {
                     
-                        sh 'mvn clean compile -e'
+                        bat 'mvn clean compile -e'
                     
                 }
             }
             stage('Test') {
                 steps {
                     
-                        sh 'mvn clean test -e'
+                        bat 'mvn clean test -e'
                     
                 }
             }
             stage('Jar') {
                 steps {                
-                        sh 'mvn clean package -e'
+                        bat 'mvn clean package -e'
                     
                 }
             }
@@ -33,7 +33,7 @@ pipeline {
             stage('Run') {
                 steps {
                     
-                        sh 'mvn spring-boot:run &'
+                        bat 'mvn spring-boot:run &'
                         sleep 20
                     
                 }
@@ -41,7 +41,7 @@ pipeline {
             stage('TestApp') {
                 steps {
                     
-                        sh 'curl -X GET "http://localhost:8081/rest/mscovid/test?msg=testing"'
+                        bat 'curl -X GET "http://localhost:8081/rest/mscovid/test?msg=testing"'
                     
                 }
             }
